@@ -1,0 +1,21 @@
+body{
+
+	font-size:16px;
+	font-family:calibri, arial;
+
+	}
+
+a{ color:#108B9A }
+
+.r{ background:#FF0000 !important } /* red bg for debugging div backgrounds don't remove */
+.g{ background:#008000 !important } /* green bg for debugging div backgrounds don't remove */
+.b{ background:#0000FF !important } /* blue bg for debugging div backgrounds don't remove */
+
+
+
+#indexHr hr{
+	color:black;
+	background: black;
+	background-color: black;
+	height:2.5px;
+}

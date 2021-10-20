@@ -1,0 +1,17 @@
+RewriteEngine on
+
+# remove traling slash
+RewriteRule ^(.*)/$ /ecomm/$1 [L,R=301]
+
+redirectMatch 301 ^/ecomm/console$ /ecomm/console/login.php
+
+# remove file extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+Redirect 301 /ecomm/index /ecomm/
+
+# use routes.php file to make content if filename doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . routes.php [L]
