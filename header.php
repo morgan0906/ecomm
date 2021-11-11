@@ -12,44 +12,39 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
 <body>
-<?php require __DIR__.'/includes/cookies.php'; ?>
+	<?php require __DIR__.'/includes/cookies.php'; ?>
 
 
 
-<?php if(count(App\Helpers\Validation::errors()) || count(App\Helpers\Tools::flashes()) ){ ?>
 
-<div class="container mt-30">
-
-	<?php require __DIR__.'/includes/flash-messages.php'; ?>
-
-</div>
-
-<?php } ?>
-
-
-<div class="container">
+<div class="container-fluid" style="background-color:#f5f5f5">
 
   <div class="row">
-		<div class="col-md-8">
+		<div class="col-md-2">
+
+		</div>
+		<div class="col-md-6 col-xs-10">
 			<div id="navbar">
 		    <ul class="nav navbar-nav">
 		      <li>
-		        <a href="<?= DOMAIN ?>/index.php">Home</a>
+		        <a style="color:black;" href="<?= DOMAIN ?>/index.php">Home</a>
 		      </li>
 		          <?php foreach ($categoryObj->getAll2() as $category ){ ?>
 								<li>
-									<a href="<?= DOMAIN ?>/<?= $category->seo_url ?>"> <?= ($category->title) ?> </a>
+									<a style="color:black;" href="<?= DOMAIN ?>/products/<?= $category->seo_url ?>"> <?= ($category->title) ?> </a>
 								</li>
 
 							<?php } ?>
 		      <li>
-		        <a href="<?= DOMAIN ?>/contact.php">Contact</a>
+		        <a style="color:black;" href="<?= DOMAIN ?>/contact.php">Contact</a>
 		      </li>
 		    </ul>
 		  </div>
 		</div>
-		<div class="col-md-4" style="padding:15px 0px 15px 0px;text-align:right;">
-				<span><a href="<?= DOMAIN ?>/basket"><i class="fa fa-shopping-cart"></i> <?= $cartObj->countItems123() ?> Items</a> </span>
-		</div>
+		<a style="color:white;" href="<?= DOMAIN ?>/basket.php">
+			<div class="col-md-1 col-xs-2" style="padding:15px 0px 15px 0px;text-align:right; background-color:#a5a5a5; color:white; text-align:center;">
+				<span><i class="fa fa-shopping-cart"></i> <?= $cartObj->countItems123() ?> Items</span>
+			</div>
+		</a>
 	</div>
 </div>
