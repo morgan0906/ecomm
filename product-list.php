@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
   require('header.php');
 
@@ -57,3 +58,21 @@
 <?php
 require('footer.php');
 ?>
+=======
+<?php
+
+$query = $productObj->getAllByCategory($category_id);
+
+
+  require('header.php');
+
+?>
+
+<div class="container">
+  <h1><?= $title ?></h1>
+</div>
+
+<?php
+require('footer.php');
+?>
+>>>>>>> f824e7cca0f346142aef68d1539110768725155e
