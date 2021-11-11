@@ -37,18 +37,20 @@ class Product extends ObjectModel{
 
     }
 
+    public function getAllProductInfo(){
+      return $this -> execute('SELECT *, products.title AS product_title, WHERE products.deleted_at IS NULL ORDER BY product.category_id ASC', []);
+    }
+
     public function getAll123()
     {
-
-
   return $this->execute('SELECT *, products.title AS product_title,
           products.title AS product_title,
           products.seo_url AS product_seo_url, products.id AS product_id FROM products WHERE products.best_seller = ?
-          AND products.deleted_at IS NULL ORDER BY RAND()', ['1'] );
+          AND products.deleted_at IS NULL ORDER BY RAND() LIMIT 4', ['1'] );
 
     }
 
-  
+
 
     public function getAllCrossell()
     {
