@@ -2,9 +2,6 @@
 
 require_once __DIR__ . '/includes/config.php';
 
-
-
-
 require_once __DIR__ . '/header.php';
 
 ?>
@@ -52,24 +49,14 @@ require_once __DIR__ . '/header.php';
 
     <div class="row">
       <center>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        	  <ul class="carousel-indicators">
-        		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        	  </ul>
 
-
-        </div>
-        <div class="carousel-inner">
-          <div class="item active">
             <?php foreach ($productObj->getAll123() as $row ){
 
-              print '<div class="col-md-3 col-sm-3 d-block"><div style="background-color:white;">';
+              print '<div class="col-md-3 col-sm-3"><div style="background-color:white;">';
                 $image = $productImageObj->getRowByFieldNotDeleted('product_id', $row->id); ?>
 
                 <!--product image-->
-                <a href="<?= DOMAIN ?>/<?= $row->seo_url ?>"><img class="img-responsive fabricSquare" style="padding-top:15px;" alt="" src="product-images/<?= $image->id ?>.<?= $image->ext ?>"> </a>
+                <a href="<?= DOMAIN ?>/product/<?= $row->seo_url ?>"><img class="img-responsive fabricSquare" style="padding-top:15px;" alt="" src="product-images/<?= $image->id ?>.<?= $image->ext ?>"> </a>
 
                 <!--product title-->
                 <p style="margin-bottom:10px;font-size:20px"><b><?= $row->title ?></b></p>
@@ -78,7 +65,7 @@ require_once __DIR__ . '/header.php';
                 <p style="margin-bottom:0px;font-size:20px;font-weight:600;">&#163;<?= $row->price ?></p>
 
                 <!--Read More Btn-->
-                <a style="padding-bottom:15px;" href="<?= DOMAIN ?>/<?= $row->seo_url ?>"><button style="font-size:20px;font-weight:600;border-radius:25px;color:white;border:none;background-color:black;width:10rem;height:5rem">View</button></a>
+                <a style="padding-bottom:15px;" href="<?= DOMAIN ?>/product/<?= $row->seo_url ?>"><button style="font-size:20px;font-weight:600;border-radius:25px;color:white;border:none;background-color:black;width:10rem;height:5rem">View</button></a>
 
           </div>
           </div>
