@@ -1,9 +1,17 @@
+<script>
+setTimeout(function() {
+	$('.alert').delay(2000).slideUp(300);
+});
+
+</script>
+
 <?php
 
 use App\Helpers\Validation;
 use App\Helpers\Tools;
 
-if( count( Validation::errors() ) ){  
+
+if( count( Validation::errors() ) ){
 
 	print '<div class="alert alert-danger mb-0">';
 
@@ -16,16 +24,12 @@ if( count( Validation::errors() ) ){
 		}
 
 	print '</ul></div>';
-	
-	if(FILE == 'account.php'){
-	
+
 	unset( $_SESSION[SESSION.'errors'] );
 
-	}
-
  }
- 
- if( count( Tools::flashes() ) ){  
+
+ if( count( Tools::flashes() ) ){
 
 	print '<div class="alert alert-success mb-0">';
 
@@ -38,11 +42,8 @@ if( count( Validation::errors() ) ){
 		}
 
 	print '</ul></div>';
-	
-	if(FILE == 'account.php'){
-	
+
 	unset( $_SESSION[SESSION.'flash'] );
-	
-	}
+
 
  }
