@@ -209,24 +209,8 @@ class Cart extends ObjectModel
     }
 
 
-    public function add($price = null)
+    public function add()
     {
-
-	/*
-
-	if( isset($_POST['option_title']) ){
-
-	$options = '';
-
-		for( $i = 0; $i < count($_POST['option_title']); $i++ ){
-
-			$options .= $_POST['option_title'][$i].': '.$_POST['option_values'][$i].' <br /> ';
-
-		}
-
-	}
-
-	*/
 
 	$this->cart_price = $price;
 	//$this->options = $options;
