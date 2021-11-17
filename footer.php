@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 <footer><br /><br /><br />
@@ -16,15 +15,3 @@
 
 </body>
 </html>
-=======
-
-
-<footer>
-
-
-
-</footer>
-
-</body>
-</html>
->>>>>>> f824e7cca0f346142aef68d1539110768725155e
