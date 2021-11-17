@@ -26,19 +26,16 @@ class ProductsFromOrder extends ObjectModel
     }
 
 
-    public function addOrderProducts($order_id)
+    public function addOrdertoProducts($order_id)
     {
 
 	foreach( $this->cart->getAll() as $cart_row ){
-
 		$this->order_id = $order_id;
 		$this->product_id = $cart_row->product_id;
 		$this->quantity = $cart_row->quantity;
 		$this->price = $cart_row->cart_price;
 		$this->title = $cart_row->title;
-		// $this->discount = $cart_row->discount;
 		$this->options = $cart_row->options;
-
 		$this->add();
 
 	}
