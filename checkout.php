@@ -1,18 +1,40 @@
 <?php
-
 include('includes/config.php');
 
 
+if( isset($_POST['first_name']) ){
+
+      $orderObj->creationOfOrder();
+      // $this->user_id = $this->user->add();
+  		// $this->shipping = $this->cart->shipping();
+  		// $this->cost = $this->cart->subTotal();
+      // $this->totalCost = $this->cart->total();
+  		// $this->order_id = $this->add();
+  		// $order_number = $this->order_id + 50000;
+  		// $this->updateRow($this->table, ['order_number' => $order_number], 'id = :id', [ 'id' => $this->order_id ] );
+  		// $this->productsFromOrder->addOrderProducts($this->order_id);
+  		// return redirect( 'paypal' );
+}
+
 include('header.php');
 ?>
+
 
 
 <div class="container">
   <h1 style="text-align:center;">Checkout</h1><br /><br />
 
   <form id="form" action="" method="post">
-      <div class="row">
-          <div class="col-md-6">
+    <div class="row">
+        <div class="col-md-6">
+          <label>Account Information</label>
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" id="email" autocomplete="off" placeholder="* Email Address" />
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" class="form-control" id="password" autocomplete="off" placeholder="* password" />
+          </div><br /><br />
+
             <label>Delivery Address</label>
             <div class="form-group">
               <input type="text" name="first_name" class="form-control" id="first_name" placeholder="* First Name"/>
