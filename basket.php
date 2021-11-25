@@ -113,10 +113,10 @@ include('header.php');
            				<select class="form-control" name="shipping" id="shipping">
        					            <option value="" disabled>Please Select Your Shipping Method</option>
                    					<option value="2.99"
-                              <?php if($cartObj->shipping() == '2.99'){ print 'selected'; } ?>>2.99
+                              <?php if($cartObj->shipping() == '2.99'){ print 'selected'; } ?>> Standard Devliery - 2.99
                             </option>
-                   					<option value="3.99"
-                            <?php if($cartObj->shipping() == '3.99'){ print 'selected'; } ?>>3.99
+                   					<option value="5.99"
+                            <?php if($cartObj->shipping() == '5.99'){ print 'selected'; } ?>> Express Delivery - 5.99
                           </option>
        				    </select>
      				    </form>
@@ -137,7 +137,13 @@ include('header.php');
          	<div class="col-md-6 text-right mb-10">
             <strong>Shipping
               <span class="symbol">£</span>
-              <span class="price" data-price="<?= number_format($cartObj->shipping(), 2) ?>"><?= number_format($cartObj->shipping(), 2) ?></span>
+
+              <span class="price"
+                data-price="<?= number_format($cartObj->shipping(), 2) ?>"
+                value="<?= number_format($cartObj->shipping(), 2) ?>">
+                <?= number_format($cartObj->shipping(), 2) ?>
+
+              </span>
             </strong>
           </div>
 
