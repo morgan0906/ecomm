@@ -91,22 +91,28 @@ class Order extends ObjectModel
     }
 
 
+    public function getOrderId()  {
+      if( isset($_COOKIE[SESSION.'order_id']) && $_COOKIE[SESSION.'order_id'] != '' && $_COOKIE[SESSION.'order_id'] != null ){
+
+        return $_COOKIE[SESSION.'order_id'];
+
+    	}
+
+      return false;
+
+    }
+
+
+
     public function getOrderNumber()
     {
+  if( isset($_SESSION[SESSION.'order_number']) && $_SESSION[SESSION.'order_number'] != '' && $_SESSION[SESSION.'order_number'] != null ){
 
-	if( isset($_COOKIE[SESSION.'order_number']) && $_COOKIE[SESSION.'order_number'] != '' && $_COOKIE[SESSION.'order_number'] != null ){
+    return $_SESSION[SESSION.'order_number'];
 
-		return $_COOKIE[SESSION.'order_number'];
+  }
 
-	}
-
-	if( isset($_SESSION[SESSION.'order_number']) && $_SESSION[SESSION.'order_number'] != '' && $_SESSION[SESSION.'order_number'] != null ){
-
-		return $_SESSION[SESSION.'order_number'];
-
-	}
-
-	return false;
+  return false;
 
     }
 
@@ -217,10 +223,14 @@ class Order extends ObjectModel
 		$this->cost = $this->cart->subTotal();
     $this->totalCost = $this->cart->total();
 		$this->order_id = $this->add();
-		$order_number = $this->order_id + 50000;
+		$order_number = $this->order_id + 10000;
+    $order_id = $this->order_id;
 		$this->updateRow($this->table, ['order_number' => $order_number], 'id = :id', [ 'id' => $this->order_id ] );
-		$this->productsFromOrder->addOrderProducts($this->order_id);
-		return redirect( 'paypal' );
+		$this->productsFromOrder->addOrdertoProducts($this->order_id);
+
+    $_SESSION[SESSION.'order_number'] = $order_number;
+
+		return redirect( 'complete' );
 
     }
 
