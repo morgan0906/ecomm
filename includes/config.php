@@ -28,6 +28,9 @@ $productObj = new App\Product;
 $categoryObj = new App\Category;
 $productImageObj = new App\ProductImage;
 $orderObj = new App\Order;
+$productFromOrderObj = new App\ProductsFromOrder;
+use App\Helpers\Tools;
+use App\Helpers\Mail;
 
 
 if( !$user->uniqueId() ){
