@@ -1,6 +1,11 @@
 <?php
 include('includes/config.php');
 
+if( $user->isAdmin() ){
+
+  redirect( 'console/account?page=home', ' You cannot checkout as as logged in Admin User', 'e');
+}
+
 
 if( isset($_POST['first_name']) ){
 
