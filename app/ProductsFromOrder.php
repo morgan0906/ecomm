@@ -6,7 +6,7 @@ class ProductsFromOrder extends ObjectModel
 {
 
     protected $table = 'products_from_order';
-    protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'title', 'options'];
+    protected $fillable = ['order_id', 'product_id', 'quantity', 'price', 'title', 'discount', 'options'];
     protected $product_id;
     protected $quantity;
     protected $price;
@@ -25,6 +25,10 @@ class ProductsFromOrder extends ObjectModel
 	return $this->execute("SELECT * FROM products_from_order WHERE products_from_order.order_id = ?  ", [$order_id] );
     }
 
+    public function getOrder($order_id)
+    {
+	return $this->execute("SELECT * FROM products_from_order WHERE products_from_order.order_id = ?  ", [$order_id] );
+    }
 
     public function addOrdertoProducts($order_id)
     {
